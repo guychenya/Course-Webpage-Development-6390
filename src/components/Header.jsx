@@ -27,8 +27,8 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <SafeIcon icon={FiBookOpen} className="text-3xl text-primary-600" />
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Learms</h1>
-              <p className="text-xs text-gray-500">Digital Marketing Course</p>
+              <h1 className="text-xl font-bold text-gray-900">MarketMinds Academy</h1>
+              <p className="text-xs text-gray-500">Digital Marketing Courses Hub</p>
             </div>
           </div>
 
@@ -57,10 +57,7 @@ const Header = () => {
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <SafeIcon 
-              icon={isMenuOpen ? FiX : FiMenu} 
-              className="text-2xl text-gray-700" 
-            />
+            <SafeIcon icon={isMenuOpen ? FiX : FiMenu} className="text-2xl text-gray-700" />
           </button>
         </div>
 

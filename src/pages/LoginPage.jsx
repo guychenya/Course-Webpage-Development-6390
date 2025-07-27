@@ -15,7 +15,6 @@ const LoginPage = () => {
 
   const handleLogin = ({ userId, token, newUser }) => {
     login({ userId, token });
-    
     if (newUser) {
       navigate('/onboarding');
     } else {
@@ -44,8 +43,8 @@ const LoginPage = () => {
             <div className="flex items-center space-x-3 mb-6">
               <SafeIcon icon={FiBookOpen} className="text-4xl text-white" />
               <div>
-                <h1 className="text-3xl font-bold text-white">Learms</h1>
-                <p className="text-primary-200">Digital Marketing Mastery</p>
+                <h1 className="text-3xl font-bold text-white">MarketMinds Academy</h1>
+                <p className="text-primary-200">Digital Marketing Courses Hub</p>
               </div>
             </div>
           </motion.div>
@@ -56,8 +55,8 @@ const LoginPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Welcome Back to Your
-              <span className="text-accent-500"> Marketing Journey</span>
+              Welcome Back to Your{' '}
+              <span className="text-accent-500">Marketing Journey</span>
             </h2>
             <p className="text-xl text-primary-100 mb-8 leading-relaxed">
               Continue building your digital marketing expertise with our comprehensive course platform.
@@ -97,8 +96,8 @@ const LoginPage = () => {
             <div className="flex items-center justify-center space-x-3 mb-4">
               <SafeIcon icon={FiBookOpen} className="text-3xl text-primary-600" />
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Learms</h1>
-                <p className="text-gray-600 text-sm">Digital Marketing Course</p>
+                <h1 className="text-2xl font-bold text-gray-900">MarketMinds Academy</h1>
+                <p className="text-gray-600 text-sm">Digital Marketing Courses Hub</p>
               </div>
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h2>

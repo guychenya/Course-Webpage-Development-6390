@@ -25,10 +25,11 @@ const DashboardPage = () => {
             <div className="flex items-center space-x-3">
               <SafeIcon icon={FiBookOpen} className="text-3xl text-primary-600" />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Learms</h1>
-                <p className="text-xs text-gray-500">Digital Marketing Course</p>
+                <h1 className="text-xl font-bold text-gray-900">MarketMinds Academy</h1>
+                <p className="text-xs text-gray-500">Digital Marketing Courses Hub</p>
               </div>
             </div>
+
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <SafeIcon icon={FiUser} className="text-gray-600" />

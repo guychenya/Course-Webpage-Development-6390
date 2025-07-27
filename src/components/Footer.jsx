@@ -40,13 +40,12 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-6">
               <SafeIcon icon={FiBookOpen} className="text-3xl text-primary-400" />
               <div>
-                <h3 className="text-2xl font-bold">Learms</h3>
-                <p className="text-gray-400 text-sm">Digital Marketing Course</p>
+                <h3 className="text-2xl font-bold">MarketMinds Academy</h3>
+                <p className="text-gray-400 text-sm">Digital Marketing Courses Hub</p>
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Transform your business with our comprehensive digital marketing course. 
-              From zero to marketing pro in just 8 weeks.
+              Transform your business with our comprehensive digital marketing courses. From zero to marketing pro in just 8 weeks.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -114,7 +113,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiMail} className="text-primary-400" />
-                <span className="text-gray-300">support@learms.com</span>
+                <span className="text-gray-300">support@marketminds.academy</span>
               </div>
               <div className="flex items-center space-x-3">
                 <SafeIcon icon={FiPhone} className="text-primary-400" />
@@ -125,6 +124,7 @@ const Footer = () => {
                 <span className="text-gray-300">San Francisco, CA</span>
               </div>
             </div>
+
             <div className="mt-6 p-4 bg-gray-800 rounded-lg">
               <p className="text-sm text-gray-300 mb-2">Ready to get started?</p>
               <button className="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors duration-200 w-full">
@@ -142,7 +142,7 @@ const Footer = () => {
           className="border-t border-gray-800 mt-12 pt-8 text-center"
         >
           <p className="text-gray-400">
-            © 2024 Learms. All rights reserved. Transform your digital marketing skills today.
+            © 2024 MarketMinds Academy. All rights reserved. Transform your digital marketing skills today.
           </p>
         </motion.div>
       </div>
