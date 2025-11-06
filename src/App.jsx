@@ -3,7 +3,6 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { QuestProvider } from '@questlabs/react-sdk';
 import '@questlabs/react-sdk/dist/style.css';
-
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import questConfig from '../questConfig';
@@ -12,6 +11,7 @@ import questConfig from '../questConfig';
 import LoginPage from './pages/LoginPage';
 import OnboardingPage from './pages/OnboardingPage';
 import DashboardPage from './pages/DashboardPage';
+import AnalyticsPage from './pages/AnalyticsPage';
 
 // Original Components
 import Header from './components/Header';
@@ -25,9 +25,9 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <QuestProvider
-      apiKey={questConfig.APIKEY}
-      entityId={questConfig.ENTITYID}
+    <QuestProvider 
+      apiKey={questConfig.APIKEY} 
+      entityId={questConfig.ENTITYID} 
       apiType="PRODUCTION"
     >
       <AuthProvider>
@@ -36,45 +36,41 @@ function App() {
             <Routes>
               {/* Authentication Routes */}
               <Route path="/login" element={<LoginPage />} />
-              <Route 
-                path="/onboarding" 
-                element={
-                  <ProtectedRoute>
-                    <OnboardingPage />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/dashboard" 
-                element={
-                  <ProtectedRoute>
-                    <DashboardPage />
-                  </ProtectedRoute>
-                } 
-              />
+              <Route path="/onboarding" element={
+                <ProtectedRoute>
+                  <OnboardingPage />
+                </ProtectedRoute>
+              } />
+              <Route path="/dashboard" element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              } />
+              <Route path="/analytics" element={
+                <ProtectedRoute>
+                  <AnalyticsPage />
+                </ProtectedRoute>
+              } />
               
               {/* Original Landing Page */}
-              <Route 
-                path="/" 
-                element={
-                  <>
-                    <Header />
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Hero />
-                      <CourseOverview />
-                      <LearningObjectives />
-                      <CourseModules />
-                      <TargetAudience />
-                      <Pricing />
-                    </motion.div>
-                    <Footer />
-                  </>
-                } 
-              />
+              <Route path="/" element={
+                <>
+                  <Header />
+                  <motion.div 
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Hero />
+                    <CourseOverview />
+                    <LearningObjectives />
+                    <CourseModules />
+                    <TargetAudience />
+                    <Pricing />
+                  </motion.div>
+                  <Footer />
+                </>
+              } />
             </Routes>
           </div>
         </Router>

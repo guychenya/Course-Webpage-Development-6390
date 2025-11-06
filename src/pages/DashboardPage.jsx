@@ -1,19 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
 
-const { FiBookOpen, FiUser, FiLogOut, FiTrendingUp, FiUsers, FiAward, FiClock } = FiIcons;
+const { FiBookOpen, FiUser, FiLogOut, FiTrendingUp, FiUsers, FiAward, FiClock, FiBarChart3 } = FiIcons;
 
 const DashboardPage = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const stats = [
     { icon: FiClock, value: '8 Weeks', label: 'Course Duration' },
     { icon: FiUsers, value: '500+', label: 'Students' },
     { icon: FiTrendingUp, value: '98%', label: 'Success Rate' },
     { icon: FiAward, value: 'Certified', label: 'Course' }
+  ];
+
+  const quickActions = [
+    { 
+      title: 'View Analytics', 
+      description: 'Track your learning progress',
+      icon: FiBarChart3,
+      action: () => navigate('/analytics'),
+      color: 'bg-blue-500'
+    },
+    { 
+      title: 'Continue Learning', 
+      description: 'Pick up where you left off',
+      icon: FiBookOpen,
+      action: () => console.log('Continue learning'),
+      color: 'bg-green-500'
+    }
   ];
 
   return (
@@ -76,6 +95,30 @@ const DashboardPage = () => {
             ))}
           </div>
 
+          {/* Quick Actions */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            {quickActions.map((action, index) => (
+              <motion.button
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                onClick={action.action}
+                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 text-left"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className={`p-3 rounded-lg ${action.color} bg-opacity-10`}>
+                    <SafeIcon icon={action.icon} className={`text-2xl ${action.color.replace('bg-', 'text-')}`} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">{action.title}</h3>
+                    <p className="text-gray-600 text-sm">{action.description}</p>
+                  </div>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+
           {/* Welcome Message */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -88,11 +131,17 @@ const DashboardPage = () => {
               You've successfully completed the onboarding process. Your personalized learning experience is now ready!
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-accent-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-600 transition-colors duration-200">
+              <button 
+                onClick={() => console.log('Start first module')}
+                className="bg-accent-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-600 transition-colors duration-200"
+              >
                 Start First Module
               </button>
-              <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors duration-200">
-                View Course Overview
+              <button 
+                onClick={() => navigate('/analytics')}
+                className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors duration-200"
+              >
+                View Analytics
               </button>
             </div>
           </motion.div>
